@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+
+
+html, body, h1  {
+  padding: 0;
+  margin: 0;
+  color: white;
+  text-align: center;
+   
+}
+
+  .dare h1 {
+      color: white;
+      font-family: 'Eater', cursive;
+      font-size: 50px;
+      letter-spacing: 20px;
+  }
+
+
+.dare {
+    background-color: red;
+    height: 100px;
+}
+
+
+
+.dare2 {
+    background-color: black;
+    height: 100px;
+}
+
+
+.drop {
+    position: relative;
+      width: 20px;
+      height: 20px;
+    top: -30px;
+    margin: 0 auto;
+      background: red;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+    -moz-animation-name: drip;
+    -webkit-animation-name: drip;
+    animation-name: drip;
+    -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  
+  .drop:before {
+    content: "";
+    position: absolute;
+    width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid red;
+    top: -22px;
+    left: 0%;
+  }
+
+
+    .action-btn {
+      background-color: orange; /* Green */
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+  
+
+  
+  @keyframes ripple {
+      from {
+        opacity: 1;
+      }
+      to {
+        width: 600px;
+        height: 300px;
+        border-width: 1px;
+        top: -100px;
+        opacity: 0;
+      }
+  }
+  
+  @keyframes ripple-2 {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    100% {
+      width: 200px;
+      height: 100px;
+      border-width: 1px;
+      top: 100px;
+      left: 200px;
+    }
+  }
+  
+  @keyframes drip {
+      to {
+        top: 4000px;
+      }
+  }
+
+        /* Image styling */
+        #myImage {
+            display: none; /* Hidden by default */
+            max-width: 100%;
+            max-height: 100vh;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+
+</style>
+<script src=""></script>
+<body>
+
+
+   <section class="dare">
+      <H1> SPOOKY BUTTON </H1>
+    </section>
+
+    <section class="dare2">
+        <div class="drop"></div>
+        <div class="wave"></div>
+    </section>
+
+
+    <!-- Button to play audio and show the image -->
+    <button class="action-btn" onclick="playAudioAndShowImage()">CLICK THE SPOOKY BUTTON?</button>
+
+    <!-- Hidden image element -->
+    <img id="myImage" src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/671d17400f86b402c8d6b213/original.png?1729959744" alt="Displayed on Click">
+
+    <!-- Audio element -->
+    <audio id="myAudio" src="https://dl.dropbox.com/scl/fi/ob41xtknbh3q13qb24ev3/VERY-LOUD-SCREAM.m4a?rlkey=wtwy6obhxnp7gyrotbydfrijw&st=aexylcua&dl=0"></audio>
+
+    <script>
+        // Function to play audio and show the image
+        function playAudioAndShowImage() {
+            // Play the audio
+            document.getElementById("myAudio").play();
+            // Display the image
+            document.getElementById("myImage").style.display = "block";
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
