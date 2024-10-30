@@ -240,16 +240,17 @@ html, body, h1  {
 
 <script>
 
-        let featureFlag = braze.getFeatureFlag("id_123");
         function playAudioAndShowImage() {
+          let featureFlag = braze.getFeatureFlag("id_123");
+          console.log(featureFlag)
           if (featureFlag.enabled) {
             // Play the audio
             document.getElementById("myAudio").play();
             // Display the image
             document.getElementById("myImage").style.display = "block";
-        } else {
-          alert("false")
-        }
+          } else {
+            alert("false");
+          }
       }
     </script>
 
