@@ -241,13 +241,11 @@ html, body, h1  {
 <script>
 
         let featureFlag = braze.getFeatureFlag("id_123");
-        function playAudioAndShowImage() {
           if(braze.getFeatureFlag(“id_123”).enabled) {
             alert("true")
         } else {
           alert("false")
         }
-      }
     </script>
 
 
