@@ -243,10 +243,7 @@ html, body, h1  {
         let featureFlag = braze.getFeatureFlag("id_123");
         function playAudioAndShowImage() {
           if(braze.getFeatureFlag(“id_123”).enabled) {
-            // Play the audio
-            document.getElementById("myAudio").play();
-            // Display the image
-            document.getElementById("myImage").style.display = "block";
+            alert("true")
         } else {
           alert("false")
         }
