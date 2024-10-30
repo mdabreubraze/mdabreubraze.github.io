@@ -2,6 +2,43 @@
 <html lang="en">
 <meta charset="UTF-8">
 <title>Page Title</title>
+<head>
+  <script type="text/javascript">
+  +function(a,p,P,b,y){a.braze={};a.brazeQueue=[];for(var s="BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson ImageOnly CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty FeatureFlag.prototype.getImageProperty FeatureFlag.prototype.getJsonProperty FeatureFlag.prototype.getTimestampProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage deferInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags logFeatureFlagImpression isInitialized".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.braze,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.brazeQueue.push(arguments); return true}"))()}window.braze.getDeferredInAppMessage=function(){return new window.braze.InAppMessage};window.braze.getCachedContentCards=function(){return new window.braze.ContentCards};window.braze.getCachedFeed=function(){return new window.braze.Feed};window.braze.getUser=function(){return new window.braze.User};window.braze.getFeatureFlag=function(){return new window.braze.FeatureFlag};(y=p.createElement(P)).type='text/javascript';
+    y.src='https://js.appboycdn.com/web-sdk/5.5/braze.min.js';
+    y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
+  }(window,document,'script');
+
+window.braze.getfeatureflag = function() {
+  return new window.braze.FeatureFlag
+}
+
+// initialize the SDK
+braze.initialize('25dd8d11-66f9-436e-9709-4ddcf770b4eb', {
+    baseUrl: "sondheim.braze.com"
+});
+
+// optionally show all in-app messages without custom handling
+braze.automaticallyShowInAppMessages();
+
+// if you use Content Cards
+braze.subscribeToContentCardsUpdates(function(cards){
+    // cards have been updated
+});
+
+
+// `openSession` should be called last - after `changeUser` and `automaticallyShowInAppMessages`
+braze.openSession();
+
+
+
+
+
+
+</script>
+
+
+</head>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="">
 <style>
@@ -73,6 +110,42 @@ html, body, h1  {
   }
 
 
+.drop1 {
+    position: relative;
+      width: 20px;
+      height: 20px;
+    top: -30px;
+    margin: 0 auto;
+      background: red;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+    -moz-animation-name: drip;
+    -webkit-animation-name: drip;
+    animation-name: drip;
+    -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -moz-animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  
+  .drop1:before {
+    content: "";
+    position: absolute;
+    width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid red;
+    top: -22px;
+    left: 0%;
+  }
+
     .action-btn {
       background-color: orange; /* Green */
       border: none;
@@ -118,7 +191,7 @@ html, body, h1  {
   
   @keyframes drip {
       to {
-        top: 4000px;
+        top: 11000px;
       }
   }
 
@@ -135,8 +208,11 @@ html, body, h1  {
 
 </style>
 <script src=""></script>
+
+
 <body>
 
+    
 
    <section class="dare">
       <H1> SPOOKY BUTTON </H1>
@@ -144,38 +220,42 @@ html, body, h1  {
 
     <section class="dare2">
         <div class="drop"></div>
-        <div class="wave"></div>
+        <div class="drop1"></div>
+
     </section>
 
 
     <!-- Button to play audio and show the image -->
     <button class="action-btn" onclick="playAudioAndShowImage()">CLICK THE SPOOKY BUTTON?</button>
-
+    
+    
     <!-- Hidden image element -->
     <img id="myImage" src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/671d17400f86b402c8d6b213/original.png?1729959744" alt="Displayed on Click">
 
     <!-- Audio element -->
     <audio id="myAudio" src="https://dl.dropbox.com/scl/fi/ob41xtknbh3q13qb24ev3/VERY-LOUD-SCREAM.m4a?rlkey=wtwy6obhxnp7gyrotbydfrijw&st=aexylcua&dl=0"></audio>
 
-    <script>
-        // Function to play audio and show the image
+
+
+
+<script>
+
+        let featureFlag = braze.getFeatureFlag("id_123");
         function playAudioAndShowImage() {
+          if (featureFlag.enabled) {
             // Play the audio
             document.getElementById("myAudio").play();
             // Display the image
             document.getElementById("myImage").style.display = "block";
+        } else {
+          alert("false")
         }
+      }
     </script>
-
-
-
-
-
-
-
-
-
 
 
 </body>
 </html>
+
+
+
