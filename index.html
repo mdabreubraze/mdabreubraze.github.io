@@ -243,14 +243,14 @@ html, body, h1  {
         function playAudioAndShowImage() {
           let featureFlag = braze.getFeatureFlag("id_123");
           console.log(featureFlag)
-          if (featureFlag.enabled) {
+          if (featureFlag == null) {
             // Play the audio
+            console.log("no scream")
+          } else {
+          // Play the audio
             document.getElementById("myAudio").play();
             // Display the image
-            document.getElementById("myImage").style.display = "block";
-          } else if (featureFlag) == null {
-            console.log("no scare")}
-          }
+            document.getElementById("myImage").style.display = "block"; }}
     </script>
 
 
