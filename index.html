@@ -44,13 +44,146 @@ braze.openSession();
 <style>
 
 
-html, body, h1  {
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+
+
+
+* {
   margin: 0;
-  color: white;
-  text-align: center;
-   
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  background-color: #0d0d0d;
+  font-family: 'Creepster', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 10rem;
+  color: #ff751a;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #ff751a;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff4500;
+}
+/* 
+.ghost {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 50% 50% 0 0;
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ghost .face {
+  position: relative;
+  top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ghost .eye {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.ghost .mouth {
+  position: absolute;
+  bottom: 20px;
+  width: 40px;
+  height: 10px;
+  background: #000;
+  border-radius: 0 0 10px 10px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+} */
+
+.bat {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('https://img.icons8.com/ios-filled/50/ffffff/bat.png') no-repeat;
+  background-size: contain;
+  top: 20%;
+  left: 10%;
+  animation: batFly 5s ease-in-out infinite;
+}
+
+.bat-2 {
+  left: 70%;
+  top: 30%;
+  animation-duration: 6s;
+}
+
+.bat-3 {
+  left: 50%;
+  top: 10%;
+  animation-duration: 4s;
+}
+
+@keyframes batFly {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(30px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+
+
 
   .dare h1 {
       color: white;
@@ -61,24 +194,26 @@ html, body, h1  {
 
 
 .dare {
-    background-color: red;
+    background-color: black;
     height: 100px;
+    align-content: center;
+
 }
 
 
 
 .dare2 {
     background-color: black;
-    height: 100px;
+    height: 1px;
 }
 
 
 .drop {
-    position: relative;
+    position: absolute;
       width: 20px;
       height: 20px;
     top: -30px;
-    margin: 0 auto;
+    margin: left;
       background: red;
       -moz-border-radius: 20px;
       -webkit-border-radius: 20px;
@@ -111,11 +246,11 @@ html, body, h1  {
 
 
 .drop1 {
-    position: relative;
+    position: absolute;
       width: 20px;
       height: 20px;
-    top: -30px;
-    margin: 0 auto;
+    top: -700px;
+    margin: 600px;
       background: red;
       -moz-border-radius: 20px;
       -webkit-border-radius: 20px;
@@ -144,19 +279,10 @@ html, body, h1  {
       border-bottom: 30px solid red;
     top: -22px;
     left: 0%;
+    center
   }
 
-    .action-btn {
-      background-color: orange; /* Green */
-      border: none;
-      color: black;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 20px;
-      border-radius: 10px;
-    }
+
   
 
   
@@ -215,8 +341,9 @@ html, body, h1  {
     
 
    <section class="dare">
-      <H1> SPOOKY BUTTON </H1>
     </section>
+
+
 
     <section class="dare2">
         <div class="drop"></div>
@@ -226,7 +353,6 @@ html, body, h1  {
 
 
     <!-- Button to play audio and show the image -->
-    <button class="action-btn" onclick="playAudioAndShowImage()">CLICK THE SPOOKY BUTTON?</button>
     
     
     <!-- Hidden image element -->
@@ -257,9 +383,32 @@ html, body, h1  {
     </script>
 
 
+
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  
+<div class="container">
+    <div class="bat"></div>
+    <div class="bat bat-2"></div>
+    <div class="bat bat-3"></div>
+
+    <h1>404</h1>
+<p id="error-message">Oops! You seem lost in the haunted forest...</p>
+
+    <a href="javascript:void(0)" class="btn" onclick="playAudioAndShowImage()">CLICK THE SPOOKY BUTTON?</a>
+  
+
+    <div class="ghost">
+      <div class="face">
+        <div class="eye"></div>
+        <div class="eye"></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 </html>
 
-https://www.dropbox.com/scl/fi/za49gsxkwfkpe1gksc43b/womp-womp-made-with-Voicemod.mp3?rlkey=iluyseftoulxbr7jk4xz4ltsd&st=z60fv21k&dl=0
 
 
