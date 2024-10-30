@@ -235,6 +235,9 @@ html, body, h1  {
     <!-- Audio element -->
     <audio id="myAudio" src="https://dl.dropbox.com/scl/fi/ob41xtknbh3q13qb24ev3/VERY-LOUD-SCREAM.m4a?rlkey=wtwy6obhxnp7gyrotbydfrijw&st=aexylcua&dl=0"></audio>
 
+    <!-- Audio element -->
+    <audio id="trombone" src="https://dl.dropbox.com/scl/fi/za49gsxkwfkpe1gksc43b/womp-womp-made-with-Voicemod.mp3?rlkey=iluyseftoulxbr7jk4xz4ltsd&st=z60fv21k&dl=0"></audio>
+
 
 
 
@@ -245,7 +248,7 @@ html, body, h1  {
           console.log(featureFlag)
           if (featureFlag == null) {
             // Play the audio
-            console.log("no scream")
+            document.getElementById("trombone").play();
           } else {
           // Play the audio
             document.getElementById("myAudio").play();
@@ -257,5 +260,6 @@ html, body, h1  {
 </body>
 </html>
 
+https://www.dropbox.com/scl/fi/za49gsxkwfkpe1gksc43b/womp-womp-made-with-Voicemod.mp3?rlkey=iluyseftoulxbr7jk4xz4ltsd&st=z60fv21k&dl=0
 
 
