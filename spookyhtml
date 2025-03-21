@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Spookiest Website</title>
+<head>
+  <script type="text/javascript">
+  +function(a,p,P,b,y){a.braze={};a.brazeQueue=[];for(var s="BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson ImageOnly CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty FeatureFlag.prototype.getImageProperty FeatureFlag.prototype.getJsonProperty FeatureFlag.prototype.getTimestampProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage deferInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags logFeatureFlagImpression isInitialized".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.braze,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.brazeQueue.push(arguments); return true}"))()}window.braze.getDeferredInAppMessage=function(){return new window.braze.InAppMessage};window.braze.getCachedContentCards=function(){return new window.braze.ContentCards};window.braze.getCachedFeed=function(){return new window.braze.Feed};window.braze.getUser=function(){return new window.braze.User};window.braze.getFeatureFlag=function(){return new window.braze.FeatureFlag};(y=p.createElement(P)).type='text/javascript';
+    y.src='https://js.appboycdn.com/web-sdk/5.5/braze.min.js';
+    y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
+  }(window,document,'script');
+
+window.braze.getfeatureflag = function() {
+  return new window.braze.FeatureFlag
+}
+
+// initialize the SDK
+braze.initialize('25dd8d11-66f9-436e-9709-4ddcf770b4eb', {
+    baseUrl: "sondheim.braze.com"
+});
+
+// optionally show all in-app messages without custom handling
+// braze.automaticallyShowInAppMessages();
+
+// if you use Content Cards
+braze.subscribeToContentCardsUpdates(function(cards){
+    // cards have been updated
+});
+
+
+braze.subscribeToInAppMessage(function(inAppMessage) {
+  braze.showInAppMessage(inAppMessage);
+});
+
+
+    
+
+// `openSession` should be called last - after `changeUser` and `automaticallyShowInAppMessages`
+braze.openSession();
+
+
+
+
+
+
+</script>
+
+
+</head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #0d0d0d;
+  font-family: 'Creepster', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 10rem;
+  color: #ff751a;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #ff751a;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  
+}
+
+.btn:hover {
+  background-color: #ff4500;
+}
+
+.btn1 {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #ff751a;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.btn1:hover {
+  background-color: #ff4500;
+}
+/* 
+.ghost {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 50% 50% 0 0;
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ghost .face {
+  position: relative;
+  top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ghost .eye {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.ghost .mouth {
+  position: absolute;
+  bottom: 20px;
+  width: 40px;
+  height: 10px;
+  background: #000;
+  border-radius: 0 0 10px 10px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+} */
+
+.bat {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: url('https://img.icons8.com/ios-filled/50/ffffff/bat.png') no-repeat;
+  background-size: contain;
+  top: 20%;
+  left: 10%;
+  animation: batFly 5s ease-in-out infinite;
+}
+
+.bat-2 {
+  left: 70%;
+  top: 30%;
+  animation-duration: 6s;
+}
+
+.bat-3 {
+  left: 50%;
+  top: 10%;
+  animation-duration: 4s;
+}
+
+@keyframes batFly {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(30px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+
+
+
+  .dare h1 {
+      color: white;
+      font-family: 'Eater', cursive;
+      font-size: 50px;
+      letter-spacing: 20px;
+  }
+
+
+.dare {
+    background-color: black;
+    height: 100px;
+    align-content: center;
+
+}
+
+
+
+.dare2 {
+    background-color: black;
+    height: 1px;
+}
+
+
+.drop {
+    position: absolute;
+      width: 20px;
+      height: 20px;
+    top: -30px;
+    margin: left;
+      background: red;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+    -moz-animation-name: drip;
+    -webkit-animation-name: drip;
+    animation-name: drip;
+    -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  
+  .drop:before {
+    content: "";
+    position: absolute;
+    width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid red;
+    top: -22px;
+    left: 0%;
+  }
+
+
+.drop1 {
+    position: absolute;
+      width: 20px;
+      height: 20px;
+    top: -700px;
+    margin: 600px;
+      background: red;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      border-radius: 20px;
+    -moz-animation-name: drip;
+    -webkit-animation-name: drip;
+    animation-name: drip;
+    -moz-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -webkit-animation-timing-function: cubic-bezier(1,0,.91,.19);
+    animation-timing-function: cubic-bezier(1,0,.91,.19);
+    -moz-animation-duration: 4s;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  
+  .drop1:before {
+    content: "";
+    position: absolute;
+    width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid red;
+    top: -22px;
+    left: 0%;
+    center
+  }
+
+
+  
+
+  
+  @keyframes ripple {
+      from {
+        opacity: 1;
+      }
+      to {
+        width: 600px;
+        height: 300px;
+        border-width: 1px;
+        top: -100px;
+        opacity: 0;
+      }
+  }
+  
+  @keyframes ripple-2 {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    100% {
+      width: 200px;
+      height: 100px;
+      border-width: 1px;
+      top: 100px;
+      left: 200px;
+    }
+  }
+  
+  @keyframes drip {
+      to {
+        top: 11000px;
+      }
+  }
+
+        /* Image styling */
+        #myImage {
+            display: none; /* Hidden by default */
+            max-width: 100%;
+            max-height: 100vh;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+
+</style>
+<script src=""></script>
+
+
+<body>
+
+    
+
+   <section class="dare">
+    </section>
+
+
+
+    <section class="dare2">
+        <div class="drop"></div>
+        <div class="drop1"></div>
+
+    </section>
+
+
+    <!-- Button to play audio and show the image -->
+    
+    
+    <!-- Hidden image element -->
+    <img id="myImage" src="https://cdn-staging.braze.com/appboy/communication/assets/image_assets/images/671d17400f86b402c8d6b213/original.png?1729959744" alt="Displayed on Click">
+
+    <!-- Audio element -->
+    <audio id="myAudio" src="https://dl.dropbox.com/scl/fi/ob41xtknbh3q13qb24ev3/VERY-LOUD-SCREAM.m4a?rlkey=wtwy6obhxnp7gyrotbydfrijw&st=aexylcua&dl=0"></audio>
+
+    <!-- Audio element -->
+    <audio id="trombone" src="https://dl.dropbox.com/scl/fi/za49gsxkwfkpe1gksc43b/womp-womp-made-with-Voicemod.mp3?rlkey=iluyseftoulxbr7jk4xz4ltsd&st=z60fv21k&dl=0"></audio>
+
+
+
+
+<script>
+
+        function playAudioAndShowImage() {
+          let featureFlag = braze.getFeatureFlag("id_123");
+          console.log(featureFlag)
+          if (featureFlag == null) {
+            // Play the audio
+            document.getElementById("trombone").play();
+          } else {
+          // Play the audio
+            document.getElementById("myAudio").play();
+            // Display the image
+            document.getElementById("myImage").style.display = "block"; }}
+
+            function setVariableToNull() {
+              featureFlag = null; // Set the variable to null
+              console.log("Variable set to:", featureFlag)}
+
+            function setVariableToTrue() {
+              featureFlag = true; // Set the variable to null
+              console.log("Variable set to:", featureFlag)}
+    </script>
+
+
+    <script>
+      function scary() {
+              braze.changeUser("kc13")
+            }
+
+      function notscary() {
+        braze.changeUser("kc12")
+      }
+    </script>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  
+<div class="container">
+    <div class="bat"></div>
+    <div class="bat bat-2"></div>
+    <div class="bat bat-3"></div>
+
+    <h1>404</h1>
+    <p id="error-message">Oops! You seem lost in the haunted forest...</p>
+
+    <a href="javascript:void(0)" class="btn" onclick="playAudioAndShowImage()">Take Me Home</a>
+    <p><h3> Use the buttons below to change the experience and then click "Take Me Home"</h3></p>
+    <p>
+    <a href="javascript:void(0)" class="btn1" onclick="scary()">Not Scary</a>
+    <a href="javascript:void(0)" class="btn1" onclick="notscary()">Scary</a></p>
+  
+
+    <div class="ghost">
+      <div class="face">
+        <div class="eye"></div>
+        <div class="eye"></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
