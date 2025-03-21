@@ -82,13 +82,15 @@
 
     </script>
 
+
     <script>
-        let feature_flag = braze.getFeatureFlag("ratesdotca").enabled;
+
+        
 
         function toggleContent() {
             const logoDiv = document.getElementById('logo');
-            if (feature_flag) {
-                logoDiv.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Toronto_Maple_Leafs_2016_logo.svg/440px-Toronto_Maple_Leafs_2016_logo.svg.png" alt="Leafs Logo">';
+            if (braze.getFeatureFlag("ratesdotca") == null) { 
+                logoDiv.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Toronto_Maple_Leafs_2016_logo.svg/440px-Toronto_Maple_Leafs_2016_logo.svg.png" alt="Leafs Logo">' ;
                 logoDiv.style.display = 'block';
                 braze.logFeatureFlagImpression("ratesdotca");
             } else {
@@ -117,9 +119,12 @@
             <p>Find the lowest mortgage rates to save on your home loan.</p>
         </div>
         <button onclick="toggleContent()">Toggle Content</button>
+        
         <div id="logo">
-            <img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Montreal_Canadiens.svg/440px-Montreal_Canadiens.svg.png">
         </div>
+        <body>
+ 
     </div>
     <footer>
         &copy; 2025 Ratesdotca. All Rights Reserved.
