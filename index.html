@@ -265,17 +265,21 @@
 
     <script>
 
+        
+
         function screenshot1() {
             const screenshot1div = document.getElementById('screenshot1');
             if (braze.getFeatureFlag("gardenjoy") == null) {} 
             else {
+                const featureFlag = braze.getFeatureFlag("gardenjoy");
                 <img id="dynamic-screenshot" 
-                 src="${featureFlag.getStringProperty('screenshot1')}" 
-                 alt="Dynamic Screenshot"
-                onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                src="${featureFlag.getStringProperty('screenshot1')}" 
+                alt="Dynamic Screenshot"
+                onerror="this.onerror=null; this.src='/api/placeholder/300/200test';"
                 class="feature-image">
             }
         }
+
 
         function screenshot2() {
             const screenshot2div = document.getElementById('screenshot2');
