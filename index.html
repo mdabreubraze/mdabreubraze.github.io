@@ -237,12 +237,12 @@
     }
 
     // initialize the SDK
-    braze.initialize('29f7326c-d393-45af-8e29-333c315ea2ac', {
+    braze.initialize('a95de5e0-a74c-4ab4-9e58-8b60e8966ca5', {
         baseUrl: "sdk.iad-06.braze.com"
     });
 
     // optionally show all in-app messages without custom handling
-    // braze.automaticallyShowInAppMessages();
+       braze.automaticallyShowInAppMessages();
 
     // if you use Content Cards
     braze.subscribeToContentCardsUpdates(function(cards){
@@ -265,19 +265,37 @@
 
     <script>
 
-        
-
-        function toggleContent() {
-            const logoDiv = document.getElementById('logo');
-            if (braze.getFeatureFlag("gardenjoy") == null) { 
-                logoDiv.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b6/Toronto_Maple_Leafs_2016_logo.svg/440px-Toronto_Maple_Leafs_2016_logo.svg.png" alt="Leafs Logo">' ;
-                logoDiv.style.display = 'block';
-                braze.logFeatureFlagImpression("ratesdotca");
-            } else {
-                logoDiv.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo">';
-                logoDiv.style.display = 'block';
+        function screenshot1() {
+            const screenshot1div = document.getElementById('screenshot1');
+            if (braze.getFeatureFlag("gardenjoy") == null) {} 
+            else {
+                <img id="dynamic-screenshot" 
+                 src="${featureFlag.getStringProperty('screenshot1')}" 
+                 alt="Dynamic Screenshot"
+                onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                class="feature-image">
             }
         }
+
+        function screenshot2() {
+            const screenshot2div = document.getElementById('screenshot2');
+            if (braze.getFeatureFlag("gardenjoy") == null) {} 
+            else {
+                screenshot2div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo">';
+            }
+        }
+
+        function screenshot3() {
+            const screenshot3div = document.getElementById('screenshot3');
+            if (braze.getFeatureFlag("gardenjoy") == null) {} 
+            else {
+                screenshot3.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo">';
+            }
+        }
+
+
+
+
     </script>
 
 </head>
@@ -337,13 +355,13 @@
         
         <section class="screenshots">
             <div id="screenshot1" class="screenshot">
-                <img src="/api/placeholder/300/200" alt="Screenshot 1">
+                
             </div>
             <div id="screenshot2" class="screenshot">
-                <img src="/api/placeholder/300/200" alt="Screenshot 2">
+                
             </div>
             <div id="screenshot3" class="screenshot">
-                <img src="/api/placeholder/300/200" alt="Screenshot 3">
+                
             </div>
         </section>
         
