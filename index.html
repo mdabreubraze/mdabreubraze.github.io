@@ -266,39 +266,21 @@
     <script>
 
         
-
-        function screenshot1() {
-            const screenshot1div = document.getElementById('screenshot1');
-            if (braze.getFeatureFlag("gardenjoy") == null) {} 
-            else {
-                const featureFlag = braze.getFeatureFlag("gardenjoy");
-                <img id="dynamic-screenshot" 
-                src="${featureFlag.getStringProperty('screenshot1')}" 
-                alt="Dynamic Screenshot"
-                onerror="this.onerror=null; this.src='/api/placeholder/300/200test';"
-                class="feature-image">
+    function updateScreenshots() {
+        const featureFlag = braze.getFeatureFlag("gardenjoy");
+        
+        // Handle screenshot1
+        const screenshot1div = document.getElementById('screenshot1');
+        if (featureFlag && screenshot1div) {
+            const imageUrl = featureFlag.getStringProperty('screenshot1');
+            if (imageUrl) {
+                screenshot1div.innerHTML = `<img 
+                    src="${imageUrl}" 
+                    alt="Dynamic Screenshot"
+                    onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                    class="feature-image">`;
             }
         }
-
-
-        function screenshot2() {
-            const screenshot2div = document.getElementById('screenshot2');
-            if (braze.getFeatureFlag("gardenjoy") == null) {} 
-            else {
-                screenshot2div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo">';
-            }
-        }
-
-        function screenshot3() {
-            const screenshot3div = document.getElementById('screenshot3');
-            if (braze.getFeatureFlag("gardenjoy") == null) {} 
-            else {
-                screenshot3.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo">';
-            }
-        }
-
-
-
 
     </script>
 
