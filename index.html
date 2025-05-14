@@ -327,18 +327,24 @@
                 if (imageUrl) {
                     screenshot2div.innerHTML = `<img 
                         src="${imageUrl}" 
-                        alt="Garden Screenshot 2"
+                        alt="Garden Screenshot 1"
                         onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
                         class="feature-image">`;
                     console.log("Screenshot2 updated with:", imageUrl);
                 } else {
-                    // Use canucks logo as fallback
-                    screenshot2div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
-                    console.log("Screenshot2 set to Canucks logo (no property)");
+                    // Default image if property doesn't exist
+                    screenshot2div.innerHTML = `<img 
+                        src="/api/placeholder/300/200" 
+                        alt="Garden Screenshot 1"
+                        class="feature-image">`;
+                    console.log("Screenshot2 set to default (no property)");
                 }
             } catch (error) {
                 console.error("Error updating screenshot2:", error);
-                screenshot2div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
+                screenshot2div.innerHTML = `<img 
+                    src="/api/placeholder/300/200" 
+                    alt="Garden Screenshot 1"
+                    class="feature-image">`;
             }
         }
     }
@@ -352,18 +358,24 @@
                 if (imageUrl) {
                     screenshot3div.innerHTML = `<img 
                         src="${imageUrl}" 
-                        alt="Garden Screenshot 3"
+                        alt="Garden Screenshot 1"
                         onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
                         class="feature-image">`;
                     console.log("Screenshot3 updated with:", imageUrl);
                 } else {
-                    // Use canucks logo as fallback
-                    screenshot3div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
-                    console.log("Screenshot3 set to Canucks logo (no property)");
+                    // Default image if property doesn't exist
+                    screenshot3div.innerHTML = `<img 
+                        src="/api/placeholder/300/200" 
+                        alt="Garden Screenshot 1"
+                        class="feature-image">`;
+                    console.log("Screenshot3 set to default (no property)");
                 }
             } catch (error) {
                 console.error("Error updating screenshot3:", error);
-                screenshot3div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
+                screenshot3div.innerHTML = `<img 
+                    src="/api/placeholder/300/200" 
+                    alt="Garden Screenshot 1"
+                    class="feature-image">`;
             }
         }
     }
