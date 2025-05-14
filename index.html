@@ -222,9 +222,13 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        .feature-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
     </style>
-
-
 
     <script type="text/javascript">
       +function(a,p,P,b,y){a.braze={};a.brazeQueue=[];for(var s="BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson ImageOnly CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty FeatureFlag.prototype.getImageProperty FeatureFlag.prototype.getJsonProperty FeatureFlag.prototype.getTimestampProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage deferInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags logFeatureFlagImpression isInitialized".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.braze,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.brazeQueue.push(arguments); return true}"))()}window.braze.getDeferredInAppMessage=function(){return new window.braze.InAppMessage};window.braze.getCachedContentCards=function(){return new window.braze.ContentCards};window.braze.getCachedFeed=function(){return new window.braze.Feed};window.braze.getUser=function(){return new window.braze.User};window.braze.getFeatureFlag=function(){return new window.braze.FeatureFlag};(y=p.createElement(P)).type='text/javascript';
@@ -232,58 +236,180 @@
         y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
       }(window,document,'script');
 
-    window.braze.getfeatureflag = function() {
-      return new window.braze.FeatureFlag
-    }
-
     // initialize the SDK
     braze.initialize('a95de5e0-a74c-4ab4-9e58-8b60e8966ca5', {
         baseUrl: "sdk.iad-06.braze.com"
     });
 
     // optionally show all in-app messages without custom handling
-       braze.automaticallyShowInAppMessages();
+    braze.automaticallyShowInAppMessages();
 
     // if you use Content Cards
     braze.subscribeToContentCardsUpdates(function(cards){
         // cards have been updated
     });
 
-
     braze.subscribeToInAppMessage(function(inAppMessage) {
       braze.showInAppMessage(inAppMessage);
     });
 
+    // Subscribe to feature flag updates and update screenshots when flags change
+    braze.subscribeToFeatureFlagsUpdates(function() {
+        console.log("Feature flags updated, refreshing screenshots");
+        updateScreenshots();
+    });
 
-        
-
-    // `openSession` should be called last - after `changeUser` and `automaticallyShowInAppMessages`
-    braze.openSession();
-
-    </script>
-
-
-    <script>
-
-        
+    // Function to update all screenshots based on feature flags
     function updateScreenshots() {
+        // Get the gardenjoy feature flag
         const featureFlag = braze.getFeatureFlag("gardenjoy");
         
-        // Handle screenshot1
+        // Only proceed if we have a valid feature flag
+        if (featureFlag) {
+            console.log("Found gardenjoy feature flag");
+            
+            // Update screenshot1
+            updateScreenshot1(featureFlag);
+            
+            // Update screenshot2
+            updateScreenshot2(featureFlag);
+            
+            // Update screenshot3
+            updateScreenshot3(featureFlag);
+            
+            // Log impression of the feature flag
+            braze.logFeatureFlagImpression("gardenjoy");
+        } else {
+            console.log("gardenjoy feature flag not found or not ready yet");
+            
+            // Set default images for screenshots if feature flag isn't available
+            setDefaultScreenshots();
+        }
+    }
+
+    // Function to update screenshot1 with feature flag data
+    function updateScreenshot1(featureFlag) {
         const screenshot1div = document.getElementById('screenshot1');
-        if (featureFlag && screenshot1div) {
-            const imageUrl = featureFlag.getStringProperty('screenshot1');
-            if (imageUrl) {
+        if (screenshot1div) {
+            try {
+                const imageUrl = featureFlag.getStringProperty('screenshot1');
+                if (imageUrl) {
+                    screenshot1div.innerHTML = `<img 
+                        src="${imageUrl}" 
+                        alt="Garden Screenshot 1"
+                        onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                        class="feature-image">`;
+                    console.log("Screenshot1 updated with:", imageUrl);
+                } else {
+                    // Default image if property doesn't exist
+                    screenshot1div.innerHTML = `<img 
+                        src="/api/placeholder/300/200" 
+                        alt="Garden Screenshot 1"
+                        class="feature-image">`;
+                    console.log("Screenshot1 set to default (no property)");
+                }
+            } catch (error) {
+                console.error("Error updating screenshot1:", error);
                 screenshot1div.innerHTML = `<img 
-                    src="${imageUrl}" 
-                    alt="Dynamic Screenshot"
-                    onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                    src="/api/placeholder/300/200" 
+                    alt="Garden Screenshot 1"
                     class="feature-image">`;
             }
         }
+    }
 
+    // Function to update screenshot2 with feature flag data
+    function updateScreenshot2(featureFlag) {
+        const screenshot2div = document.getElementById('screenshot2');
+        if (screenshot2div) {
+            try {
+                const imageUrl = featureFlag.getStringProperty('screenshot2');
+                if (imageUrl) {
+                    screenshot2div.innerHTML = `<img 
+                        src="${imageUrl}" 
+                        alt="Garden Screenshot 2"
+                        onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                        class="feature-image">`;
+                    console.log("Screenshot2 updated with:", imageUrl);
+                } else {
+                    // Use canucks logo as fallback
+                    screenshot2div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
+                    console.log("Screenshot2 set to Canucks logo (no property)");
+                }
+            } catch (error) {
+                console.error("Error updating screenshot2:", error);
+                screenshot2div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
+            }
+        }
+    }
+
+    // Function to update screenshot3 with feature flag data
+    function updateScreenshot3(featureFlag) {
+        const screenshot3div = document.getElementById('screenshot3');
+        if (screenshot3div) {
+            try {
+                const imageUrl = featureFlag.getStringProperty('screenshot3');
+                if (imageUrl) {
+                    screenshot3div.innerHTML = `<img 
+                        src="${imageUrl}" 
+                        alt="Garden Screenshot 3"
+                        onerror="this.onerror=null; this.src='/api/placeholder/300/200';"
+                        class="feature-image">`;
+                    console.log("Screenshot3 updated with:", imageUrl);
+                } else {
+                    // Use canucks logo as fallback
+                    screenshot3div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
+                    console.log("Screenshot3 set to Canucks logo (no property)");
+                }
+            } catch (error) {
+                console.error("Error updating screenshot3:", error);
+                screenshot3div.innerHTML = '<img src="https://www.bradmcleod.com/wp-content/uploads/2017/09/canucks_logo.jpg" alt="Canucks Logo" class="feature-image">';
+            }
+        }
+    }
+
+    // Function to set default images for all screenshots
+    function setDefaultScreenshots() {
+        const screenshot1div = document.getElementById('screenshot1');
+        const screenshot2div = document.getElementById('screenshot2');
+        const screenshot3div = document.getElementById('screenshot3');
+        
+        if (screenshot1div) {
+            screenshot1div.innerHTML = `<img 
+                src="/api/placeholder/300/200" 
+                alt="Garden Screenshot 1"
+                class="feature-image">`;
+        }
+        
+        if (screenshot2div) {
+            screenshot2div.innerHTML = `<img 
+                src="/api/placeholder/300/200" 
+                alt="Garden Screenshot 2"
+                class="feature-image">`;
+        }
+        
+        if (screenshot3div) {
+            screenshot3div.innerHTML = `<img 
+                src="/api/placeholder/300/200" 
+                alt="Garden Screenshot 3"
+                class="feature-image">`;
+        }
+        
+        console.log("All screenshots set to default images");
+    }
+
+    // Wait for DOM to be loaded before trying to access elements
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded, checking for feature flags");
+        
+        // Try to update screenshots right away
+        // This will use feature flags if already loaded, or defaults if not
+        updateScreenshots();
+    });
+
+    // `openSession` should be called last
+    braze.openSession();
     </script>
-
 </head>
 <body>
     <div class="wrapper">
@@ -328,12 +454,10 @@
                 <p>Discover and collect over 100 different plant species, each with unique growth patterns and care requirements.</p>
             </div>
             <div class="feature">
-                
                 <h3>Dynamic Weather</h3>
                 <p>Experience changing seasons and weather conditions that affect your garden's growth and appearance.</p>
             </div>
             <div class="feature">
-                
                 <h3>Garden Community</h3>
                 <p>Share your garden creations, exchange tips, and visit other players' gardens for inspiration.</p>
             </div>
@@ -341,13 +465,13 @@
         
         <section class="screenshots">
             <div id="screenshot1" class="screenshot">
-                
+                <!-- Content will be dynamically inserted by JavaScript -->
             </div>
             <div id="screenshot2" class="screenshot">
-                
+                <!-- Content will be dynamically inserted by JavaScript -->
             </div>
             <div id="screenshot3" class="screenshot">
-                
+                <!-- Content will be dynamically inserted by JavaScript -->
             </div>
         </section>
         
