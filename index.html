@@ -129,18 +129,16 @@
     });
 
 
-    braze.getFeatureFlags(function (flags) {
-      const featureFlag = braze.getFeatureFlag("ehc");
-        // Only proceed if we have a valid feature flag
-        if (featureFlag) {
-
+    function updateFontIfFeatureEnabled() {
+      const featureflag = braze.getFeatureFlag("ehc");
+      if (featureFlag) { {
         const link = document.createElement("link");
         link.href = "https://fonts.googleapis.com/css2?family=Lora&display=swap";
         link.rel = "stylesheet";
         document.head.appendChild(link);
         document.body.style.fontFamily = "'Lora', serif";
       }
-    });
+    }
   
 
     // `openSession` should be called last
