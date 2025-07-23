@@ -50,10 +50,10 @@
       // handle updated cards if needed
     });
 
-    braze.openSession().then(() => {
-      braze.requestFeatureFlagsRefresh();
+    braze.openSession()
+    braze.requestFeatureFlagsRefresh();
 
-      braze.subscribeToFeatureFlagsUpdates(() => {
+      braze.subscribeToFeatureFlagsUpdates()
         const featureFlag = braze.getFeatureFlag("ehc");
         braze.logFeatureFlagImpression("ehc");
 
