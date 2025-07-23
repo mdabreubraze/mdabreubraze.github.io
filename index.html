@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fertility App - Inspired by Premom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: sans-serif; line-height: 1.6; color: #333; }
-    header { background: #fff; padding: 1rem 2rem; position: sticky; top: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); z-index: 1000; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav a { text-decoration: none; color: #333; font-weight: 600; }
-    .btn { background-color: #a689e1; color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; text-decoration: none; }
-    .hero { font-family: "Times New Roman", Times, serif; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 3rem 2rem; background: #f7f3ff; }
-    .hero-text { max-width: 500px; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #6a4fbf; }
-    .hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
-    .hero img { max-width: 300px; }
-    .features { padding: 3rem 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; background: #fff; }
-    .feature-card { padding: 1.5rem; border: 1px solid #eaeaea; border-radius: 10px; text-align: center; }
-    .feature-card h3 { color: #6a4fbf; margin-bottom: 0.5rem; }
-    .testimonials { background: #f0ecfc; padding: 3rem 2rem; text-align: center; }
-    .testimonials h2 { color: #6a4fbf; margin-bottom: 1.5rem; }
-    .testimonial { max-width: 600px; margin: 0 auto; font-style: italic; }
-    .products { padding: 3rem 2rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; background: #fff; }
-    .product-card { width: 250px; padding: 1rem; border: 1px solid #ddd; border-radius: 10px; text-align: center; }
-    .product-card img { max-width: 100%; border-radius: 6px; }
-    footer { background: #6a4fbf; color: white; text-align: center; padding: 2rem 1rem; }
-    footer a { color: #f9f9f9; margin: 0 0.5rem; text-decoration: none; }
-  </style>
-  
-  <!-- Braze feature flag font switch -->
+<p id="myText">This text will update based on feature flag.</p>
+
+<script>
+
   <script type="text/javascript">
       +function(a,p,P,b,y){a.braze={};a.brazeQueue=[];for(var s="BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson ImageOnly CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty FeatureFlag.prototype.getImageProperty FeatureFlag.prototype.getJsonProperty FeatureFlag.prototype.getTimestampProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage deferInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags logFeatureFlagImpression isInitialized".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.braze,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.brazeQueue.push(arguments); return true}"))()}window.braze.getDeferredInAppMessage=function(){return new window.braze.InAppMessage};window.braze.getCachedContentCards=function(){return new window.braze.ContentCards};window.braze.getCachedFeed=function(){return new window.braze.Feed};window.braze.getUser=function(){return new window.braze.User};window.braze.getFeatureFlag=function(){return new window.braze.FeatureFlag};(y=p.createElement(P)).type='text/javascript';
         y.src='https://js.appboycdn.com/web-sdk/5.5/braze.min.js';
@@ -60,95 +30,17 @@
     // Subscribe to feature flag updates and update screenshots when flags change
     braze.subscribeToFeatureFlagsUpdates(function() {
     });
-
-function updateFont(fontName) {
-      const link = document.createElement("link");
-      link.href = `https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, "+")}&display=swap`;
-      link.rel = "stylesheet";
-      document.head.appendChild(link);
-      document.body.style.font-family = "cursive";
-    }
-
-const featureFlag = braze.getFeatureFlag("ehc");
-    braze.logFeatureFlagImpression("ehc");
-    if (featureFlag?.enabled) {
-      updateFont("Lora")};
-
-
-
-    
-    // `openSession` should be called last
-        braze.openSession();
-
-  </script>
-
   
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo"><strong>FertilityApp</strong></div>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#download" class="btn">Download App</a></li>
-      </ul>
-    </nav>
-  </header>
+  const featureFlag = braze.getFeatureFlag("ehc");
+  braze.logFeatureFlagImpression("ehc");
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Track, Test & Get Pregnant Faster</h1>
-      <p>Use smart tools to track ovulation, analyze cycles, and get expert fertility support—all in one app.</p>
-      <a href="#" class="btn">Download Now</a>
-    </div>
-    <img src="https://premom.com/wp-content/uploads/2024/02/homepage-app-2-021224.png" alt="App Screenshot" />
-  </section>
+  const targetElement = document.getElementById("myText");
 
-  <section id="features" class="features">
-    <div class="feature-card">
-      <h3>Smart Test Reading</h3>
-      <p>Scan LH tests and get instant results with AI-powered interpretation.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Fertility Insights</h3>
-      <p>Personalized charts and reports to help you understand your cycle better.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Partner Sync</h3>
-      <p>Invite your partner to share in your journey with cycle updates.</p>
-    </div>
-  </section>
-
-  <section id="testimonials" class="testimonials">
-    <h2>What Users Are Saying</h2>
-    <p class="testimonial">“This app helped me understand my body in a way no other tool has. I conceived in 2 months!”</p>
-  </section>
-
-  <section id="products" class="products">
-    <div class="product-card">
-      <img src="https://www.inovifertility.com/wp-content/uploads/2024/08/ovulation-test-033024.webp" alt="Ovulation Kit" />
-      <h4>Ovulation Test Kit</h4>
-      <p>Easy-to-use LH tests for accurate ovulation tracking.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://i.ebayimg.com/images/g/IkUAAOSwp7RmrMgM/s-l1200.jpg" alt="BBT Thermometer" />
-      <h4>BBT Thermometer</h4>
-      <p>Track your basal body temperature effortlessly.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://pics.walgreens.com/prodimg/261672/450.jpg" alt="Prenatal Vitamins" />
-      <h4>Prenatal Vitamins</h4>
-      <p>Support your fertility journey with essential nutrients.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 FertilityApp. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Support</a>
-    </p>
-  </footer>
-</body>
-</html>
+  if (featureFlag?.enabled) {
+    // Feature flag is enabled — use Font A
+    targetElement.style.fontFamily = "Georgia, serif";
+  } else {
+    // Feature flag is not enabled — use Font B
+    targetElement.style.fontFamily = "Arial, sans-serif";
+  }
+</script>
