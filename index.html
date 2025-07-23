@@ -36,7 +36,7 @@
 
   const targetElement = document.getElementById("myText");
 
-  if (featureFlag?.enabled) {
+  if (featureFlag) {
     // Feature flag is enabled — use Font A
     targetElement.style.fontFamily = "Georgia, serif";
   } else {
