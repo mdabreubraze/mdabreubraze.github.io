@@ -130,34 +130,6 @@
         updateScreenshots();
     });
 
-    // Function to update all screenshots based on feature flags
-    function updateScreenshots() {
-        // Get the ehc feature flag
-        const featureFlag = braze.getFeatureFlag("ehc");
-        
-        // Only proceed if we have a valid feature flag
-        if (featureFlag) {
-            console.log("found ehc ff");
-            
-            // Update screenshot1
-            updateScreenshot1(featureFlag);
-            
-            // Update screenshot2
-            updateScreenshot2(featureFlag);
-            
-            // Update screenshot3
-            updateScreenshot3(featureFlag);
-            
-            // Log impression of the feature flag
-            braze.logFeatureFlagImpression("ehc");
-        } else {
-            console.log("ehc ff not ready");
-            
-            // Set default images for screenshots if feature flag isn't available
-            setDefaultScreenshots();
-        }
-    }
-
 
     braze.getFeatureFlags(function (flags) {
       const featureFlag = braze.getFeatureFlag("ehc");
