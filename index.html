@@ -39,7 +39,7 @@
   if (featureFlag) {
     // Feature flag is enabled — use Font A
     targetElement.style.fontFamily = "Georgia, serif";
-  } else {
+  } else if ((featureFlag.length === 0)) {
     // Feature flag is not enabled — use Font B
     targetElement.style.fontFamily = "cursive";
   }
