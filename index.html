@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Times New Roman", Times, serif; line-height: 1.6; color: #333; }
+    body { font-family: sans-serif; line-height: 1.6; color: #333; }
     header { background: #fff; padding: 1rem 2rem; position: sticky; top: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); z-index: 1000; }
     nav { display: flex; justify-content: space-between; align-items: center; }
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
@@ -66,7 +66,7 @@ function updateFont(fontName) {
       link.href = `https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, "+")}&display=swap`;
       link.rel = "stylesheet";
       document.head.appendChild(link);
-      document.body.style.fontFamily = `'${fontName}', sans-serif`;
+      document.body.style.font-family = "cursive";
     }
 
 const featureFlag = braze.getFeatureFlag("ehc");
