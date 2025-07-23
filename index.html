@@ -34,18 +34,24 @@
   const featureFlag = braze.getFeatureFlag("ehc");
   braze.logFeatureFlagImpression("ehc");
 
-  const targetElement = document.getElementById("myText");
+    if (featureFlag?.enabled) {
+      // Create a new <div> element
+      const newElement = document.createElement("div");
+      newElement.textContent = "Feature Flag EHC is enabled!";
+      newElement.style.fontFamily = "Georgia, serif"; // optional styling
 
-  if (featureFlag) {
-    // Feature flag is enabled — use Font A
-    targetElement.style.fontFamily = "Georgia, serif";
-  } else if ((featureFlag.length === 0)) {
-    // Feature flag is not enabled — use Font B
-    targetElement.style.fontFamily = "cursive";
-  }
+      // Append it to the end of the body
+      document.body.appendChild(newElement);
+    }
+  });
+});
 
 </script>
 
 
+<body>
 
-<p id="myText">This text will update based on feature flag.</p>
+  <p id="myText">This text will update based on feature flag.</p>
+  
+</body>
+
