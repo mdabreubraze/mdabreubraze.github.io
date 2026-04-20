@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALO - Studio to Street</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons span {
+            cursor: pointer;
+            font-size: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-icons span:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 50px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Category Grid */
+        .category-section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 3/4;
+            background: #f5f5f5;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: #fff;
+        }
+
+        .category-overlay h3 {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Featured Products */
+        .featured-products {
+            background: #fafafa;
+            padding: 80px 40px;
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #f0f0f0;
+            margin-bottom: 15px;
+        }
+
+        .product-info {
+            padding: 0 10px 20px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Lifestyle Section */
+        .lifestyle-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 70vh;
+        }
+
+        .lifestyle-image {
+            background: linear-gradient(45deg, #d4a373 0%, #e8c9a8 100%);
+        }
+
+        .lifestyle-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 60px;
+            background: #fff;
+        }
+
+        .lifestyle-content h2 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .lifestyle-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .lifestyle-section {
+                grid-template-columns: 1fr;
+            }
+
+            .lifestyle-content {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        FREE SHIPPING & FREE RETURNS
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">ALO</div>
+            <ul class="nav-links">
+                <li><a href="#women">Women</a></li>
+                <li><a href="#men">Men</a></li>
+                <li><a href="#new">New Arrivals</a></li>
+                <li><a href="#bestsellers">Bestsellers</a></li>
+                <li><a href="#yoga">Yoga</a></li>
+            </ul>
+            <div class="nav-icons">
+                <span>🔍</span>
+                <span>👤</span>
+                <span>🛍️</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Studio to Street</h1>
+            <p>Premium yoga wear for mindful movement</p>
+            <a href="#shop" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Category Section -->
+    <section class="category-section">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-overlay">
+                    <h3>Leggings</h3>
+                </div>
+            </div>
+            <div class="category-card">
+                <div class="category-overlay">
+                    <h3>Tops</h3>
+                </div>
+            </div>
+            <div class="category-card">
+                <div class="category-overlay">
+                    <h3>Outerwear</h3>
+                </div>
+            </div>
+            <div class="category-card">
+                <div class="category-overlay">
+                    <h3>Accessories</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="products-container">
+            <h2 class="section-title">New Arrivals</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <div class="product-name">High-Waist Airbrush Legging</div>
+                        <div class="product-price">$118</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <div class="product-name">Accolade Sweatshirt</div>
+                        <div class="product-price">$128</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <div class="product-name">Airlift Bra</div>
+                        <div class="product-price">$68</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"></div>
+                    <div class="product-info">
+                        <div class="product-name">Movement Jogger</div>
+                        <div class="product-price">$138</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Section -->
+    <section class="lifestyle-section">
+        <div class="lifestyle-image"></div>
+        <div class="lifestyle-content">
+            <h2>Move Mindfully</h2>
+            <p>Our mission is to bring yoga to the world. We create elevated pieces that are both technically advanced and fashion-forward, so you can move seamlessly from studio to street.</p>
+            <a href="#about" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ALO Yoga. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
